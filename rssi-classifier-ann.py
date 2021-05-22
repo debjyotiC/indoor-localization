@@ -15,8 +15,8 @@ model = tf.keras.Sequential([
 ])
 
 model.compile(loss=tf.keras.losses.BinaryCrossentropy(),
-              optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=['acc'])
-history = model.fit(x_train, y_train, epochs=500, validation_data=(x_test, y_test))
+              optimizer=tf.keras.optimizers.Adam(learning_rate=0.01), metrics=['acc'])
+history = model.fit(x_train, y_train, epochs=400, validation_data=(x_test, y_test))
 
 model.save("model/save")
 

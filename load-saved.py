@@ -7,7 +7,7 @@ x, y = data['out_x'], data['out_y']  # load into np arrays
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=False, test_size=0.4)
 
-data_select = 4
+data_select = 3
 data_select_x = x_train[data_select]
 data_select_y = y_train[data_select]
 
