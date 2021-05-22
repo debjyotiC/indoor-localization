@@ -1,32 +1,19 @@
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
-# Fixing random state for reproducibility
-np.random.seed(19680801)
 
-X = []
-Y = []
-Z = []
-C = []
-rssi_x = [[-75, -54, -58], [-72, -58, -58], [-72, -60, -54], [-76, -57, -58], [-72, -58, -58], [-72, -59, -62], [-72, -58, -62],
-          [-72, -63, -64], [-72, -57, -63], [-75, -58, -62], [-57, -58, -76], [-56, -57, -72], [-54, -56, -74], [-56, -57, -76],
-          [-58, -56, -72], [-56, -58, -72], [-57, -57, -72], [-56, -58, -78],
-          [-58, -56, -72], [-56, -62, -76]]
-rssi_y = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+data = np.load('data/rssi.npz', allow_pickle=True)  # load MFCCs
+rssi_x, rssi_y = data['out_x'], data['out_y']  # load into np arrays
+
+X, Y, Z = [], [], []
 
 for elements in enumerate(rssi_x):
     count, element = elements
     X.append(element[0])
     Y.append(element[1])
     Z.append(element[2])
-    if rssi_y[count] == 1:
-        C.append('red')
-    else:
-        C.append('blue')
 
 # split the data
-
 x_0, y_0, z_0 = X[:10], Y[:10], Z[:10]
 x_1, y_1, z_1 = X[10:], Y[10:], Z[10:]
 
