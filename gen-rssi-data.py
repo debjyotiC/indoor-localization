@@ -8,6 +8,4 @@ rssi_y = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 data_x = np.array(rssi_x)
 data_y = np.array(rssi_y)
-print(data_x.shape)
-
-np.savez('data\\rssi.npz', out_x=data_x, out_y=data_y)
+np.savez('data/rssi.npz', out_x=data_x, out_y=data_y)
