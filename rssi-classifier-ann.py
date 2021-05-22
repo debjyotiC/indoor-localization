@@ -29,8 +29,24 @@ print("Training accuracy: {:.5f}".format(np.mean(acc)))
 print("Validation accuracy: {:.5f}".format(np.mean(val_acc)))
 
 epochs = range(1, len(acc) + 1)
-plt.plot(epochs, loss, label="Loss")
-plt.plot(epochs, val_loss, label="Val. loss")
-plt.legend()
+
+fig, axs = plt.subplots(2, 1)
+# plot loss
+axs[0].plot(epochs, loss, color='Green', label="Loss")
+axs[0].plot(epochs, val_loss, color='Red', label="Val. loss")
+axs[0].legend()
+axs[0].set_xlabel('Epoch')
+axs[0].set_ylabel('Loss')
+axs[0].grid(True)
+
+# plot accuracy
+axs[1].plot(epochs, acc, color='Green', label="Acc.")
+axs[1].plot(epochs, val_acc, color='Red', label="Val Acc.")
+axs[1].legend()
+axs[1].set_xlabel('Epoch')
+axs[1].set_ylabel('Accuracy')
+axs[1].grid(True)
+
 plt.show()
+
 
