@@ -9,7 +9,7 @@ rssi_label = np.array([1, 2, 3, 4, 5])
 while True:
     data = esp.esp_serial()
     rssi_test = np.array([data])
-    #print(rssi_test)
+    # print(rssi_test)
     clf = SVC(kernel='linear')
     clf.fit(rssi_features, rssi_label)
     pred = clf.predict(rssi_test)
@@ -23,8 +23,3 @@ while True:
         print('Ma\'s room')
     elif pred == [5]:
         print('Baba\'s room')
-
-
-
-
-
